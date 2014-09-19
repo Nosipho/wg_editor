@@ -30,21 +30,27 @@ editorControllers.controller('wgEditorController', function($scope, pf3service, 
 });
 
 
+//editorControllers.controller('wgClientController', function($scope, pf3service , dataService){
+
+   // $scope.currentWorkgroup.currentClient = {};
+//
+
+   // $scope.$on("clientSelected", function (event, args) {
+     //   $scope.currentWorkgroup.currentClient = pf3service.getWorkgroupConfig(args.id);
+
+    //});
 
 
-editorControllers.controller('wgClientController', function($scope, pf3service ){
+//});
+
+
+editorControllers.controller('wgUserController', function($scope, pf3service ){
 
 
 });
 
 
-editorControllers.controller('wgClientUserController', function($scope, pf3service ){
-
-
-});
-
-
-editorControllers.controller('editorController', function($scope, pf3service){
+editorControllers.controller('userController', function($scope, pf3service){
 
 
 });

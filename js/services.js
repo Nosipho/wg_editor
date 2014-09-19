@@ -38,8 +38,14 @@ app.factory('dataService', function ($rootScope) {
         $rootScope.$broadcast("workgroupSelected", data);
     }
 
+   // shared.selectClient = function (data) {
+     //   $rootScope.$broadcast("clientSelected", data);
+    //}
 
+//    shared.selectUser = function (data) {
+  //      $rootScope.$broadcast("userSelected", data);
+    //}
 
-    return shared;
+   return shared;
 });
 
