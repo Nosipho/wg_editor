@@ -1,0 +1,305 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+
+        <div class="span12">
+
+            <div class="col-sm-4">
+
+                <div class="panel panel-info" ng-controller="workgroupController">
+                    <div class="panel-heading"><h3 class="text-center panel-title">Choose workgroup to edit</h3></div>
+                    <div class="panel-body">
+
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+
+                                <div class="col-sm-6">
+                                    <select class="form-control"  name="selectedWorkgroup">
+                                        <option>Select Workgroup</option>
+                                        <option  ng-selected="selectWorkgroup(wg)" ng-repeat="wg in workgroups" value="{{wg.id}}">{{wg.name}}</option>
+
+                                    </select>
+                                </div>
+                                </div>
+                           </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="panel panel-info" ng-controller="wgEditorController">
+                <div class="panel-heading"><h3 class="text-center panel-title">{{currentWorkgroup.id}} : {{currentWorkgroup.name}}</h3></div>
+                <div class="panel-body">
+
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_id" class="control-label col-sm-5">{{ 'ID' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_id" id="wg_id" type="text" class="form-control" ng-model="currentWorkgroup.id" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_name" class="control-label col-sm-5">{{ 'NAME' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_name" id="wg_name" type="text" class="form-control" ng-model="currentWorkgroup.name" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_preflight_profile" class="control-label col-sm-5">{{ 'PREFLIGHT_PROFILE' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_preflight_profile" id="wg_preflight_profile" type="text" class="form-control" ng-model="currentWorkgroup.preflight_profile">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_os_userid" class="control-label col-sm-5">{{ 'OS_USERID' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_os_user_d" id="wg_os_userid" type="text" class="form-control" ng-model="currentWorkgroup.os_userid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_os_user_name" class="control-label col-sm-5">{{ 'OS_USER_NAME' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_os_user_name" id="wg_os_user_name" type="text" class="form-control" ng-model="currentWorkgroup.os_user_name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_dam_site" class="control-label col-sm-5">{{ 'DAM_SITE' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_dam_site" id="wg_dam_site" type="text" class="form-control" ng-model="currentWorkgroup.dam_site">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_class" class="control-label col-sm-5">{{ 'CLASS' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_class" id="wg_class" type="text" class="form-control" ng-model="currentWorkgroup.class">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_dropbox_root" class="control-label col-sm-5">{{ 'DROPBOX_ROOT' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_dropbox_root" id="wg_dropbox_root" type="text" class="form-control" ng-model="currentWorkgroup.dropbox_root">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_os_groupid" class="control-label col-sm-5">{{ 'OS_GROUP_ID' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_os_groupid" id="wg_os_groupid" type="text" class="form-control" ng-model="currentWorkgroup.os_groupid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_serial_number" class="control-label col-sm-5">{{ 'SERIAL_NUMBER' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_serial_number" id="wg_serial_number" type="text" class="form-control" ng-model="currentWorkgroup.serial_number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_os_group_name" class="control-label col-sm-5">{{ 'OS_GROUP_NAME' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_os_group_name" id="wg_os_group_name" type="text" class="form-control" ng-model="currentWorkgroup.os_group_name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_id_parent" class="control-label col-sm-5">{{ 'ID_PARENT' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_id_parent" id="wg_id_parent" type="text" class="form-control" ng-model="currentWorkgroup.id_parent">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_class_parent" class="control-label col-sm-5">{{ 'CLASS_PARENT' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_class_parent" id="wg_class_parent" type="text" class="form-control" ng-model="currentWorkgroup.class_parent">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="wg_last_check" class="control-label col-sm-5">{{ 'LAST_CHECK' | translate}}</label>
+                                <div class="col-sm-7">
+                                    <input name="wg_last_check" id="wg_last_check" type="text" class="form-control" ng-model="currentWorkgroup.last_check">
+                                </div>
+                            </div>
+                        </div>
+
+                 <div class="form-group">
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary col-sm-2" style="float:right" type="submit"  ng-click="">Save</button>
+                            <button class="btn btn-primary col-sm-2" style="float:right" type="submit" ng-click="">Reset</button>
+                        </div>
+                </div>
+               </form>
+                    <div class="col-sm-8">
+
+                    <div class="panel panel-info" ng-controller="wgClientController">
+                        <div class="panel-heading"><h3 class="text-center panel-title">Choose client to edit</h3></div>
+                        <div class="panel-body">
+
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+
+                                    <div class="col-sm-8">
+                                        <select class="form-control"  name="selectedClient">
+                                            <option>Select Client </option>
+                                            <option  ng-click="alert(wg.id)" ng-repeat="wg in workgroups" value="{{wg.id}}">{{wg.name}}</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-sm-12">
+
+                        <div class="panel panel-info" ng-controller="wgClientController">
+                            <div class="panel-heading"><h3 class="text-center panel-title">Editing{{wg.client.name}}</h3></div>
+                            <div class="panel-body">
+
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                       <div class="col-sm-12">
+                                           <label for="wg_os_group_name" class="control-label col-sm-5">{{ 'OS_GROUP_NAME' | translate}}</label>
+                                               <div class="col-sm-7">
+                                                <input name="wg_os_group_name" id="wg_os_group_name" type="text" class="form-control" ng-model="currentWorkgroup.os_group_name">
+                                               </div>
+                                        </div>
+                                    </div>
+                                      <div class="form-group">
+                                          <div class="col-sm-12">
+                                              <label for="wg_id_parent" class="control-label col-sm-5">{{ 'ID_PARENT' | translate}}</label>
+                                              <div class="col-sm-7">
+                                               <input name="wg_id_parent" id="wg_id_parent" type="text" class="form-control" ng-model="currentWorkgroup.id_parent">
+                                              </div>
+                                           </div>
+                                         </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label for="wg_os_group_name" class="control-label col-sm-5">{{ 'OS_GROUP_NAME' | translate}}</label>
+                                            <div class="col-sm-7">
+                                                <input name="wg_os_group_name" id="wg_os_group_name" type="text" class="form-control" ng-model="currentWorkgroup.os_group_name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label for="wg_id_parent" class="control-label col-sm-5">{{ 'ID_PARENT' | translate}}</label>
+                                            <div class="col-sm-7">
+                                                <input name="wg_id_parent" id="wg_id_parent" type="text" class="form-control" ng-model="currentWorkgroup.id_parent">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label for="wg_os_group_name" class="control-label col-sm-5">{{ 'OS_GROUP_NAME' | translate}}</label>
+                                            <div class="col-sm-7">
+                                                <input name="wg_os_group_name" id="wg_os_group_name" type="text" class="form-control" ng-model="currentWorkgroup.os_group_name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label for="wg_id_parent" class="control-label col-sm-5">{{ 'ID_PARENT' | translate}}</label>
+                                            <div class="col-sm-7">
+                                                <input name="wg_id_parent" id="wg_id_parent" type="text" class="form-control" ng-model="currentWorkgroup.id_parent">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label for="wg_os_group_name" class="control-label col-sm-5">{{ 'OS_GROUP_NAME' | translate}}</label>
+                                            <div class="col-sm-7">
+                                                <input name="wg_os_group_name" id="wg_os_group_name" type="text" class="form-control" ng-model="currentWorkgroup.os_group_name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label for="wg_id_parent" class="control-label col-sm-5">{{ 'ID_PARENT' | translate}}</label>
+                                            <div class="col-sm-7">
+                                                <input name="wg_id_parent" id="wg_id_parent" type="text" class="form-control" ng-model="currentWorkgroup.id_parent">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label for="wg_os_group_name" class="control-label col-sm-5">{{ 'OS_GROUP_NAME' | translate}}</label>
+                                            <div class="col-sm-7">
+                                                <input name="wg_os_group_name" id="wg_os_group_name" type="text" class="form-control" ng-model="currentWorkgroup.os_group_name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label for="wg_id_parent" class="control-label col-sm-5">{{ 'ID_PARENT' | translate}}</label>
+                                            <div class="col-sm-7">
+                                                <input name="wg_id_parent" id="wg_id_parent" type="text" class="form-control" ng-model="currentWorkgroup.id_parent">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label for="wg_id_parent" class="control-label col-sm-5">{{ 'ID_PARENT' | translate}}</label>
+                                            <div class="col-sm-7">
+                                                <input name="wg_id_parent" id="wg_id_parent" type="text" class="form-control" ng-model="currentWorkgroup.id_parent">
+                                            </div>
+                                        </div>
+                                    </div>
+                                        </form>
+                                <div class="col-sm-8">
+
+                                    <div class="panel panel-info" ng-controller="wgClientController">
+                                        <div class="panel-heading"><h3 class="text-center panel-title">Choose User to edit</h3></div>
+                                        <div class="panel-body">
+
+                                            <form class="form-horizontal" role="form">
+                                                <div class="form-group">
+
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control"  name="selectedClient">
+                                                            <option>Select Client </option>
+                                                            <option  ng-click="alert(wg.id)" ng-repeat="wg in workgroups" value="{{wg.id}}">{{wg.name}}</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                    </div>
+                                  </div>
+
+
+
+                               </div>
+                            </div>
+                     </div>
+                </div>
+</div>
+</div>
+</div>
