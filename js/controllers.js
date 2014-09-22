@@ -15,6 +15,15 @@ editorControllers.controller('workgroupController', function($scope, pf3service,
         dataService.selectWorkgroup(wg);
     }
 
+    //$scope.selectClient= function(wg){
+
+    //    dataService.selectClient(wg);
+  //  }
+//    $scope.selectUser= function(wg){
+
+//        dataService.selectUser(wg);
+    //}
+
 });
 
 editorControllers.controller('wgEditorController', function($scope, pf3service, dataService ){

@@ -15,17 +15,26 @@
     function ($routeProvider){
 
         $routeProvider.
-           // when('/login',{
-                //templateUrl: 'partials/login.html',
-                //controller: 'userController'
-            //}).
+           when('/login',{
+                templateUrl: 'partials/login.html',
+                controller: 'userController'
+            }).
 
             when('/workgroup',{
                 templateUrl: 'partials/workgroup-editor.html',
                 controller: 'editorController'
             }).
+
+            when('/client',{
+                templateUrl: 'partials/client-editor.html',
+                controller: 'editorController'
+            }).
+            when('/user',{
+                templateUrl: 'partials/user-editor.html',
+                controller: 'editorController'
+            }).
         otherwise({
-                redirectTo: '/workgroup'
+                redirectTo: '/user'
             });
 
     }])
