@@ -3,7 +3,7 @@
 <br/>
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-info">
-                <div class="panel-heading"><h3 class="text-center panel-title">USERS</h3></div>
+                <div class="panel-heading"><h3 class="text-center panel-title">USERS {{currentworkgroup.client.name}} : {{currentworkgroup.client.id}}</h3></div>
                 <div class="panel-body">
 
             <div class="col-sm-4">
@@ -25,7 +25,7 @@
 
 <div class="col-sm-8">
     <div class="panel panel-info" ng-controller="wgClientController">
-      <div class="panel-heading"><h3 class="text-center panel-title">{{currentWorkgroup.currentClient.currentUser.full_name}}</h3></div>
+      <div class="panel-heading"><h3 class="text-center panel-title">{{currentWorkgroup.Client.User.full_name}}</h3></div>
         <div class="panel-body">
 
           <form class="form-horizontal" role="form">

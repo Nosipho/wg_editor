@@ -34,7 +34,7 @@
                 controller: 'editorController'
             }).
         otherwise({
-                redirectTo: '/user'
+                redirectTo: '/workgroup'
             });
 
     }])

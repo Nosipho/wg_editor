@@ -4,7 +4,7 @@
         <br/>
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-info">
-                <div class="panel-heading"><h3 class="text-center panel-title">USERS</h3></div>
+                <div class="panel-heading"><h3 class="text-center panel-title">CLIENTS FOR {{currentWorkgroup.id}} : {{currentWorkgroup.name}}</h3></div>
                 <div class="panel-body">
 
             <div class="col-sm-4">
@@ -36,7 +36,7 @@
 
             <div class="col-sm-8">
                 <div class="panel panel-info" ng-controller="wgClientController">
-                    <div class="panel-heading"><h3 class="text-center panel-title">{{workgroup.client.name}} : {{workgroup.client.id}}</h3></div>
+                    <div class="panel-heading"><h3 class="text-center panel-title">{{currentworkgroup.client.name}} : {{currentworkgroup.client.id}}</h3></div>
                     <div class="panel-body">
 
                         <form class="form-horizontal" role="form">
@@ -145,6 +145,7 @@
                                     <button class="btn btn-primary col-sm-2" style="float:right" type="submit" ng-click="">Users</button>
                                     <button class="btn btn-primary col-sm-2" style="float:right" type="submit"  ng-click="">Save</button>
                                     <button class="btn btn-primary col-sm-2" style="float:right" type="submit" ng-click="">Reset</button>
+                                    <button class="btn btn-primary col-sm-2" style="float:right" type="submit" ng-click="">workgroup</button>
                                  </div>
                             </div>
                         </form>
