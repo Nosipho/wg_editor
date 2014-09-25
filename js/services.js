@@ -6,8 +6,6 @@ app.factory('pf3service', function ($http) {
 
     var pf3API  = {};
 
-    {}
-
     pf3API.getWorkgroupConfig = function (workgroupId) {
        var url = app.pf3baseUrl + '/workgroup?callback=JSON_CALLBACK&id=' + workgroupId
         return $http({
