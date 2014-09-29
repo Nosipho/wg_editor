@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <span class="h3 panel-title">{{'WORKGROUP_DETAILS' | translate}} {{currentWorkgroup.name}} - {{currentWorkgroup.id}}</span>
+    </div>
+    <div class="panel-body">
+        <div class="col-sm-6">
+            <div class="form-group row has-feedback">
+                <label for="wg_id" class="control-label col-sm-3">{{'ID'| translate}}</label>
 
-</body>
-</html>
+                <div class="col-sm-9">
+                    <input name="wg_id" id="wg_id" type="text" class="form-control"
+                           ng-model="currentWorkgroup.id" readonly>
+                </div>
+            </div>
+            <div class="form-group  row has-feedback">
+                <label for="wg_clients" class="control-label col-sm-3">{{'CLIENTS'| translate}}</label>
+
+                <div class="col-sm-9">
+                    <select class="form-control" id="wg_clients"
+                            ng-model="selectedClient" ng-options="v as v.name for (k,v) in currentWorkgroup.clients"
+                            ng-change="selectClient(selectedClient)">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group row has-feedback">
+
+                <label for="wg_id" class="control-label col-sm-3">{{'NAME'| translate}}</label>
+
+                <div class="col-sm-9">
+                    <input name="wg_name" id="wg_name" type="text" class="form-control"
+                           ng-model="currentWorkgroup.name" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

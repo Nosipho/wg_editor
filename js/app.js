@@ -5,33 +5,19 @@
     ]);
 
     app.lang = "en";
-
     app.rootUrl = "http://localhost";
     app.baseUrl = "http://localhost/wg_editor";
     app.pf3baseUrl="http://dis.printoutsource.com/ulsa/pf3";
 
-
     app.config (['$routeProvider',
     function ($routeProvider){
-
         $routeProvider.
            when('/login',{
                 templateUrl: 'partials/login.html',
                 controller: 'userController'
             }).
-
             when('/workgroup',{
-                templateUrl: 'partials/workgroup-editor.html',
-                controller: 'editorController'
-            }).
-
-            when('/client',{
-                templateUrl: 'partials/client-editor.html',
-                controller: 'editorController'
-            }).
-            when('/user',{
-                templateUrl: 'partials/user-editor.html',
-                controller: 'editorController'
+                templateUrl: 'partials/colin/workgroup-editor-panel.html'
             }).
         otherwise({
                 redirectTo: '/workgroup'

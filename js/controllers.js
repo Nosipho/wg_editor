@@ -2,73 +2,37 @@
 
 var editorControllers = angular.module ('editorControllers', []);
 
-editorControllers.controller('workgroupController', function($scope, pf3service, dataService ){
+editorControllers.controller('editorController', function($scope, pf3service, dataService) {
+    $scope.selectedWorkgroup = {};
+    $scope.currentWorkgroup = {};
+    $scope.selectedClient = {};
+    $scope.currentClient = {};
+    $scope.selectedUser = {};
+    $scope.currentUser = {};
+
     pf3service.getWorkgroups().success(function (response) {
         $scope.workgroups =  response;
     }).then(function (message) {
-       // $scope.currentWorkgroup = $scope.workgroups[0];
-
+        $scope.selectWorkgroup($scope.workgroups[0]);
     });
 
-    $scope.selectWorkgroup= function(wg){
-
-        dataService.selectWorkgroup(wg);
+    $scope.selectWorkgroup = function(workgroup) {
+        $scope.selectedWorkgroup = workgroup;
+        pf3service.getWorkgroupConfig($scope.selectedWorkgroup.id).success(function (response) {
+            $scope.currentWorkgroup = response;
+        });
     }
 
+    $scope.selectClient = function(client) {
+        $scope.selectedClient = client;
+    }
 
-    $scope.selectClient= function(wgClient){
-
-        dataService.selectClient(wgClient);
-   }
-
-
-    $scope.selectUser= function(wgClientUser){
-
-        dataService.selectUser(wgClientUser);
+    $scope.selectUser = function(user) {
+        $scope.selectedUser = user;
     }
 
 });
 
-editorControllers.controller('wgEditorController', function($scope, pf3service, dataService ){
-    $scope.currentWorkgroup = {};
-
-
-    $scope.$on("workgroupSelected", function (event, args) {
-        $scope.currentWorkgroup = pf3service.getWorkgroupConfig(args.id);
-
-
-     });
-
-});
-
-
-editorControllers.controller('wgClientController', function($scope, pf3service , dataService){
-
-   $scope.currentWorkgroup.Client = {};
-
-
-    $scope.$on("clientSelected", function (event, args) {
-       $scope.currentWorkgroup.Client = pf3service.getWorkgroupConfig(args.id);
-
-    });
-
-
-});
-
-
-editorControllers.controller('wgUserController', function($scope, pf3service, dataService){
-
-
-    $scope.currentWorkgroup.Client.User = {};
-
-
-    $scope.$on("clientSelected", function (event, args) {
-        $scope.currentWorkgroup.Client.User = pf3service.getWorkgroupConfig(args.id);
-
-    });
-
-
-});
 
 
 
