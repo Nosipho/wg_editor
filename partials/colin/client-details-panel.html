@@ -18,13 +18,16 @@
                 <div class="col-sm-9">
                     <select class="form-control" id="client_users"
                             ng-model="selectedUser" ng-options="v as v.full_name for (k,v) in currentClient.users"
-                            ng-change="selectUsers(selectedUser)">
+                            ng-change="selectUser(selectedUser)">
                     </select>
                 </div>
             </div>
         </div>
         <div class="col-sm-6">
         </div>
+    </div>
+    <div class="row" style="margin:6px;padding-bottom:4px">
+        <user-details-panel/>
     </div>
 </div>
 
