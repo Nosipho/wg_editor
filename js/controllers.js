@@ -39,6 +39,14 @@ editorControllers.controller('editorController', function($scope, pf3service, da
         $scope.currentUser.full_name = $scope.currentUser.first_name + " " + $scope.currentUser.last_name;
     }
 
+    $scope.saveCurrentUser = function() {
+        $scope.currentClient.users[$scope.currentUser.id] = $scope.currentUser;
+    }
+
+    $scope.saveCurrentClient = function() {
+        $scope.currentWorkgroup.clients[$scope.currentClient.name] = $scope.currentClient;
+    }
+
 });
 
 
