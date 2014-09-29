@@ -54,6 +54,16 @@ editorControllers.controller('editorController', function($scope, pf3service, da
         // TODO save workgroup
     }
 
+    $scope.addUser = function() {
+        $scope.currentUser = {
+            first_name: "New",
+            last_name: "User",
+            full_name: "New User",
+            id: "0000",
+            email: "new.user@printoutsource.com"
+        }
+    }
+
 });
 
 
