@@ -7,7 +7,7 @@
             <div class="form-group  row has-feedback">
                 <label for="user_full_name" class="control-label col-sm-6">{{'FULL_NAME'| translate}}</label>
 
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <input name="user_full_name" id="user_full_name" type="text" class="form-control"
                            ng-model="currentUser.full_name" readonly>
                 </div>
@@ -15,17 +15,19 @@
             <div class="form-group row has-feedback">
                 <label for="user_first_name" class="control-label col-sm-6">{{'FIRST_NAME'| translate}}</label>
 
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <input name="user_first_name" id="user_first_name" type="text" class="form-control"
-                           ng-model="currentUser.first_name">
+                           ng-model="currentUser.first_name"
+                           ng-change="userSetFullName()">
                 </div>
             </div>
             <div class="form-group row has-feedback">
                 <label for="user_last_name" class="control-label col-sm-6">{{'LAST_NAME'| translate}}</label>
 
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <input name="user_last_name" id="user_last_name" type="text" class="form-control"
-                           ng-model="currentUser.last_name">
+                           ng-model="currentUser.last_name"
+                           ng-change="userSetFullName()">
                 </div>
             </div>
         </div>
@@ -33,7 +35,7 @@
             <div class="form-group  row has-feedback">
                 <label for="user_id" class="control-label col-sm-6">{{'ID'| translate}}</label>
 
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <input name="type" id="user_id" type="text" class="form-control"
                            ng-model="currentUser.id">
                 </div>
@@ -41,7 +43,7 @@
             <div class="form-group  row has-feedback">
                 <label for="user_noosh_username" class="control-label col-sm-6">{{'NOOSH_USERNAME'| translate}}</label>
 
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <input name="type" id="user_noosh_username" type="text" class="form-control"
                            ng-model="currentUser.noosh_username">
                 </div>
@@ -49,7 +51,7 @@
             <div class="form-group  row has-feedback">
                 <label for="user_email" class="control-label col-sm-6">{{'EMAIL'| translate}}</label>
 
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     <input name="type" id="user_email" type="email" class="form-control"
                            ng-model="currentUser.email">
                 </div>

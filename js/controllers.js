@@ -20,17 +20,23 @@ editorControllers.controller('editorController', function($scope, pf3service, da
         $scope.selectedWorkgroup = workgroup;
         pf3service.getWorkgroupConfig($scope.selectedWorkgroup.id).success(function (response) {
             $scope.currentWorkgroup = response;
+            $scope.selectClient(_.values($scope.currentWorkgroup.clients)[0]);
         });
     }
 
     $scope.selectClient = function(client) {
         $scope.selectedClient = client;
         $scope.currentClient = client;
+        $scope.selectUser(_.values($scope.currentClient.users)[0]);
     }
 
     $scope.selectUser = function(user) {
         $scope.selectedUser = user;
         $scope.currentUser = user;
+    }
+
+    $scope.userSetFullName = function() {
+        $scope.currentUser.full_name = $scope.currentUser.first_name + " " + $scope.currentUser.last_name;
     }
 
 });
