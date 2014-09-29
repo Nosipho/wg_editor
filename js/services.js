@@ -9,10 +9,10 @@ app.factory('pf3service', function ($http) {
     pf3API.getWorkgroupConfig = function (workgroupId) {
        var url = app.pf3baseUrl + '/workgroup?callback=JSON_CALLBACK&id=' + workgroupId
         return $http({
-            method: 'JSONP',
-            url: app.pf3baseUrl  +  '/workgroup?callback=JSON_CALLBACK&id=' + workgroupId
+           method: 'JSONP',
+           url: app.pf3baseUrl  +  '/workgroup?callback=JSON_CALLBACK&id=' + workgroupId
         });
-    };
+   };
 
 
     pf3API.getWorkgroups = function() {
@@ -36,8 +36,14 @@ app.factory('dataService', function ($rootScope) {
         $rootScope.$broadcast("workgroupSelected", data);
     }
 
+   shared.selectClient = function (data) {
+     $rootScope.$broadcast("clientSelected", data);
+    }
 
+   shared.selectUser = function (data) {
+        $rootScope.$broadcast("userSelected", data);
+    }
 
-    return shared;
+   return shared;
 });
 

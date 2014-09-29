@@ -1,0 +1,43 @@
+<div class="container-fluid" style="width:800px;margin-top:20px;margin-left:20px;">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="h3 panel-title" translate="WORKGROUP_EDITOR"/>
+        </div>
+        <div class="panel-body" ng-controller="workgroupController">
+            <div class="row" style="margin:6px;padding-bottom:4px">
+                <div class="col-sm-4" style="margin-rightt:4px">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <select class="form-control" name="selectedWorkgroup">
+                                <option translate="CHOOSE_WORKGROUP"/>
+                                <option ng-selected="selectWorkgroup(wg)"
+                                        ng-repeat="wg in workgroups" value="{{wg.id}}">
+                                    {{wg.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div style="padding-left:4px">
+                    <div class="btn-group-sm">
+                        <button type="button" class="btn btn-success btn-s" ng-click="startUpload()"
+                                ng-disabled="!canUpload">
+                            <span class="glyphicon glyphicon-upload"></span><span translate="UPLOAD_ALL"/>
+                        </button>
+                        <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()"
+                                ng-disabled="!uploader.isUploading">
+                            <span class="glyphicon glyphicon-ban-circle"></span><span translate="CANCEL_ALL"/>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()"
+                                ng-disabled="!uploader.queue.length">
+                            <span class="glyphicon glyphicon-trash"></span><span translate="REMOVE_ALL"/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin:6px;padding-bottom:4px">
+                <workgroup-details-panel />
+            </div>
+        </div>
+    </div>
+</div>

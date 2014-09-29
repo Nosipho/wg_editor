@@ -15,6 +15,18 @@ editorControllers.controller('workgroupController', function($scope, pf3service,
         dataService.selectWorkgroup(wg);
     }
 
+
+    $scope.selectClient= function(wgClient){
+
+        dataService.selectClient(wgClient);
+   }
+
+
+    $scope.selectUser= function(wgClientUser){
+
+        dataService.selectUser(wgClientUser);
+    }
+
 });
 
 editorControllers.controller('wgEditorController', function($scope, pf3service, dataService ){
@@ -30,24 +42,34 @@ editorControllers.controller('wgEditorController', function($scope, pf3service, 
 });
 
 
+editorControllers.controller('wgClientController', function($scope, pf3service , dataService){
+
+   $scope.currentWorkgroup.Client = {};
 
 
-editorControllers.controller('wgClientController', function($scope, pf3service ){
+    $scope.$on("clientSelected", function (event, args) {
+       $scope.currentWorkgroup.Client = pf3service.getWorkgroupConfig(args.id);
+
+    });
+
+
+});
+
+
+editorControllers.controller('wgUserController', function($scope, pf3service, dataService){
+
+
+    $scope.currentWorkgroup.Client.User = {};
+
+
+    $scope.$on("clientSelected", function (event, args) {
+        $scope.currentWorkgroup.Client.User = pf3service.getWorkgroupConfig(args.id);
+
+    });
 
 
 });
 
-
-editorControllers.controller('wgClientUserController', function($scope, pf3service ){
-
-
-});
-
-
-editorControllers.controller('editorController', function($scope, pf3service){
-
-
-});
 
 
 
