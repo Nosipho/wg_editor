@@ -25,10 +25,12 @@ editorControllers.controller('editorController', function($scope, pf3service, da
 
     $scope.selectClient = function(client) {
         $scope.selectedClient = client;
+        $scope.currentClient = client;
     }
 
     $scope.selectUser = function(user) {
         $scope.selectedUser = user;
+        $scope.currentUser = user;
     }
 
 });

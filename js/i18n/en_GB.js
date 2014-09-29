@@ -4,6 +4,8 @@ var translations_en_GB = {
     SELECT_WORKGROUP: "Select Workgroup",
     CHOOSE_WORKGROUP: "Choose Workgroup ...",
     CLIENTS: "Clients",
+    CLIENT_DETAILS: "Client Details",
+    USERS: "Users",
     DROPBOX: "Dropbox",
     PREFLIGHT: "Preflight",
     LOGIN_TITLE: 'Login',
