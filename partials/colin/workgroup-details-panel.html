@@ -1,4 +1,4 @@
-<div class="panel panel-info">
+<div class="panel panel-warning">
     <div class="panel-heading">
         <span class="h3 panel-title">{{'WORKGROUP_DETAILS' | translate}} {{currentWorkgroup.name}} - {{currentWorkgroup.id}}</span>
     </div>
@@ -34,6 +34,16 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="btn-group-sm" style="padding:6px">
+        <button type="button" class="btn btn-warning btn-s" ng-click="saveCurrentWorkgroup()"
+                ng-disabled="false">
+            <span translate="SAVE_WORKGROUP"/>
+        </button>
+        <button type="button" class="btn btn-warning btn-s" ng-click="selectWorkgroup(selectedWorkgroup)"
+                ng-disabled="false">
+            <span translate="RESET_WORKGROUP"/>
+        </button>
     </div>
     <div class="row" style="margin:6px;padding-bottom:4px">
         <client-details-panel/>

@@ -1,29 +1,15 @@
 <div class="container-fluid" style="width:800px;margin-top:20px;margin-left:20px;">
-    <div class="panel panel-info">
+    <div class="panel panel-info" ng-controller="editorController">
         <div class="panel-heading">
             <span class="h3 panel-title" translate="WORKGROUP_EDITOR"/>
         </div>
-        <div class="panel-body" ng-controller="editorController">
-            <div class="row" style="margin:6px;padding:4px">
-                <div class="col-sm-4" style="margin-rightt:4px">
-                        <div class="form-group">
-                            <select class="form-control" id="selectedWorkgroup"
-                                    ng-model="selectedWorkgroup" ng-options="w as w.name for w in workgroups"
-                                    ng-change="selectWorkgroup(selectedWorkgroup)">
-                            </select>
-                        </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="btn-group-sm">
-                        <button type="button" class="btn btn-primary btn-s" ng-click="startUpload()"
-                                ng-disabled="false">
-                            <span translate="SAVE"/>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-s" ng-click="uploader.cancelAll()"
-                                ng-disabled="true">
-                            <span translate="CANCEL"/>
-                        </button>
-                    </div>
+        <div class="panel-body">
+            <div class="row" style="margin:6px;padding-bottom:4px">
+                <div class="col-sm-4">
+                    <select class="form-control" id="selectedWorkgroup"
+                            ng-model="selectedWorkgroup" ng-options="w as w.name for w in workgroups"
+                            ng-change="selectWorkgroup(selectedWorkgroup)">
+                    </select>
                 </div>
             </div>
             <div class="row" style="margin:6px;padding-bottom:4px">

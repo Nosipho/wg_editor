@@ -3,10 +3,13 @@
 var editorControllers = angular.module ('editorControllers', []);
 
 editorControllers.controller('editorController', function($scope, pf3service, dataService) {
+    $scope.dirtyWorkgroup = false;
     $scope.selectedWorkgroup = {};
     $scope.currentWorkgroup = {};
+    $scope.dirtyClient = false;
     $scope.selectedClient = {};
     $scope.currentClient = {};
+    $scope.dirtyUser = false;
     $scope.selectedUser = {};
     $scope.currentUser = {};
 
@@ -45,6 +48,10 @@ editorControllers.controller('editorController', function($scope, pf3service, da
 
     $scope.saveCurrentClient = function() {
         $scope.currentWorkgroup.clients[$scope.currentClient.name] = $scope.currentClient;
+    }
+
+    $scope.saveCurrentWorkgroup = function() {
+        // TODO save workgroup
     }
 
 });

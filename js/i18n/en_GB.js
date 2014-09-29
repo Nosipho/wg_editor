@@ -17,6 +17,7 @@ var translations_en_GB = {
     SAVE_WORKGROUP: "Save Workgroup",
     SAVE_CLIENT: "Save Client",
     SAVE_USER: "Save User",
+    RESET_WORKGROUP: "Reset Workgroup",
     LOGIN_TITLE: 'Login',
     ENTER_USERNAME: 'Enter Username',
     ENTER_PASSWORD: 'Enter Password',
