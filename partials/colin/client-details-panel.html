@@ -12,6 +12,14 @@
                            ng-model="currentClient.name">
                 </div>
             </div>
+            <div class="form-group row has-feedback">
+                <label for="client_noosh_nge_enabled" class="control-label col-sm-9">{{'NOOSH_NGE_ENABLED'| translate}} = {{currentClient.noosh_nge_enabled}}</label>
+
+                <div class="col-sm-12">
+                    <input type="checkbox" name="client_noosh_nge_enabled" id="client_noosh_nge_enabled"
+                           ng-model="currentClient.noosh_nge_enabled">
+                </div>
+            </div>
             <div class="form-group  row has-feedback">
                 <label for="client_users" class="control-label col-sm-3">{{'USERS'| translate}}</label>
 
