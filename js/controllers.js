@@ -13,6 +13,12 @@ editorControllers.controller('editorController', function($scope, pf3service, da
     $scope.selectedUser = {};
     $scope.currentUser = {};
 
+    $scope.clipBoard = {
+        workgroup: {},
+        client: {},
+        user: {},
+    }
+
     pf3service.getWorkgroups().success(function (response) {
         $scope.workgroups =  response;
     }).then(function (message) {
@@ -61,6 +67,21 @@ editorControllers.controller('editorController', function($scope, pf3service, da
             full_name: "New User",
             id: "0000",
             email: "new.user@printoutsource.com"
+        }
+    }
+
+    $scope.copyUser = function() {
+        $scope.clipBoard.user = $scope.currentUser;
+    }
+
+    $scope.pasteUser = function() {
+        $scope.currentUser = $scope.clipBoard.user;
+    }
+
+    $scope.deleteUser = function() {
+        if ($scope.currentClient.users[$scope.currentUser.id]) {
+            delete $scope.currentClient.users[$scope.currentUser.id];
+            $scope.selectClient($scope.currentClient);
         }
     }
 
