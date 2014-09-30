@@ -63,7 +63,7 @@ var translations_en_GB = {
     FILE_NOTIFY_EMAILS: "File Notify emails",
     PROJECT_NOTIFY_EMAILS: "project Notify emails",
     DAM_SITE: "Dam Site",
-    NOOSH_NGE_ENABLED: "Noosh NGE enabled",
+    NOOSH_NGE_ENABLED: "Noosh NGE",
     AGENCY_EMAILS: "Agency emails",
     BROWSER: "Browser"
 
