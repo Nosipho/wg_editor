@@ -3,35 +3,74 @@
         <span class="h3 panel-title">{{'WORKGROUP_DETAILS' | translate}} {{currentWorkgroup.name}} - {{currentWorkgroup.id}}</span>
     </div>
     <div class="panel-body">
-        <div class="col-sm-6">
-            <div class="form-group row has-feedback">
-                <label for="wg_id" class="control-label col-sm-3">{{'ID'| translate}}</label>
+        <form name="wgForm" class="form-horizontal" novalidate>
+            <div class="col-sm-6">
+                <div class="form-group row has-feedback"
+                     ng-class="{ 'has-error' : wgForm.wg_id.$invalid, 'has-success' : wgForm.wg_id.$valid }">
+                    <label for="wg_id" class="control-label col-sm-3">{{'ID'| translate}}</label>
 
-                <div class="col-sm-9">
-                    <input name="wg_id" id="wg_id" type="text" class="form-control"
-                           ng-model="currentWorkgroup.id" readonly>
+                    <div class="col-sm-9">
+                        <input name="wg_id" id="wg_id" type="number" class="form-control"
+                               ng-model="currentWorkgroup.id"
+                               ng-required="true"
+                               ng-minlength="7" ng-maxlength="7">
+                        <p ng-show="wgForm.wg_id.$error" class="help-block">
+                            {{HELP_TEXT_wg_id | translate}}</p>
+                        <span class="glyphicon form-control-feedback" ng-show="true"
+                              ng-class="{ 'glyphicon-remove' : wgForm.wg_id.$invalid, 'glyphicon-ok' : wgForm.wg_id.$valid }">
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group  row has-feedback">
+                    <label for="wg_clients" class="control-label col-sm-3">{{'CLIENTS'| translate}}</label>
+
+                    <div class="col-sm-9">
+                        <select class="form-control" id="wg_clients"
+                                ng-model="selectedClient" ng-options="v as v.name for (k,v) in currentWorkgroup.clients"
+                                ng-change="selectClient(selectedClient)">
+                        </select>
+                    </div>
                 </div>
             </div>
-            <div class="form-group  row has-feedback">
-                <label for="wg_clients" class="control-label col-sm-3">{{'CLIENTS'| translate}}</label>
+            <div class="col-sm-6">
+                <div class="form-group row has-feedback">
 
-                <div class="col-sm-9">
-                    <select class="form-control" id="wg_clients"
-                            ng-model="selectedClient" ng-options="v as v.name for (k,v) in currentWorkgroup.clients"
-                            ng-change="selectClient(selectedClient)">
-                    </select>
+                    <label for="wg_name" class="control-label col-sm-3">{{'NAME'| translate}}</label>
+
+                    <div class="col-sm-9">
+                        <input name="wg_name" id="wg_name" type="text" class="form-control"
+                               ng-model="currentWorkgroup.name">
+                    </div>
                 </div>
+                <div class="form-group row has-feedback">
+
+                    <label for="wg_dam_site" class="control-label col-sm-3">{{'DAM_SITE'| translate}}</label>
+
+                    <div class="col-sm-9">
+                        <input name="wg_dam_site" id="wg_dam_site" type="text" class="form-control"
+                               ng-model="currentWorkgroup.dam_site">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-12">
+        <div class="form-group row has-feedback">
+
+            <label for="wg_dropbox_folder" class="control-label col-sm-4">{{'DROPBOX_FOLDER'| translate}}</label>
+
+            <div class="col-sm-8">
+                <input name="wg_dropbox_folder" id="wg_dropbox_folder" type="text" class="form-control"
+                       ng-model="currentWorkgroup.dropbox_root">
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="form-group row has-feedback">
+        <div class="form-group row has-feedback">
 
-                <label for="wg_id" class="control-label col-sm-3">{{'NAME'| translate}}</label>
+            <label for="wg_preflight_profile" class="control-label col-sm-4">{{'PREFLIGHT_PROFILE'| translate}}</label>
 
-                <div class="col-sm-9">
-                    <input name="wg_name" id="wg_name" type="text" class="form-control"
-                           ng-model="currentWorkgroup.name" readonly>
-                </div>
+            <div class="col-sm-8">
+                <input name="wg_preflight_profile" id="wg_preflight_profile" type="text" class="form-control"
+                       ng-model="currentWorkgroup.preflight_profile">
             </div>
         </div>
     </div>
@@ -43,6 +82,10 @@
         <button type="button" class="btn btn-warning btn-s" ng-click="selectWorkgroup(selectedWorkgroup)"
                 ng-disabled="false">
             <span translate="RESET_WORKGROUP"/>
+        </button>
+        <button type="button" class="btn btn-warning btn-s" ng-click="addWorkgroup()"
+                ng-disabled="false">
+            <span translate="ADD_WORKGROUP"/>
         </button>
     </div>
     <div class="row" style="margin:6px;padding-bottom:4px">
