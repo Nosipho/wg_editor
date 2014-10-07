@@ -2,7 +2,7 @@
 
 var editorControllers = angular.module ('editorControllers', []);
 
-editorControllers.controller('editorController', function($scope, pf3service, dataService) {
+editorControllers.controller('editorController', function($scope, pf3service) {
     $scope.dirtyWorkgroup = false;
     $scope.selectedWorkgroup = {};
     $scope.currentWorkgroup = {};
@@ -27,6 +27,8 @@ editorControllers.controller('editorController', function($scope, pf3service, da
     });
 
     $scope.selectWorkgroup = function (workgroup) {
+        $scope.wgForm.$dirty = false;
+        $scope.wgForm.$valid = true;
         $scope.selectedWorkgroup = workgroup;
         pf3service.getWorkgroupConfig($scope.selectedWorkgroup.id).success(function (response) {
             $scope.currentWorkgroup = response;
@@ -93,8 +95,8 @@ editorControllers.controller('editorController', function($scope, pf3service, da
     }
 
     $scope.selectDummyWorkgroup = function (briefWorkgroup, workgroup) {
-        $scope.selectedWorkgroup = briefWorkgroup;
         $scope.currentWorkgroup = workgroup;
+        $scope.selectedWorkgroup = briefWorkgroup;
         $scope.selectClient(_.values($scope.currentWorkgroup.clients)[0]);
     }
 

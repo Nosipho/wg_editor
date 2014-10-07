@@ -7,7 +7,8 @@
             <div class="row" style="margin:6px;padding-bottom:4px">
                 <div class="col-sm-4">
                     <select class="form-control" id="selectedWorkgroup"
-                            ng-model="selectedWorkgroup" ng-options="w as w.name for w in workgroups"
+                            ng-model="selectedWorkgroup"
+                            ng-options="w as w.name for w in workgroups"
                             ng-change="selectWorkgroup(selectedWorkgroup)">
                     </select>
                 </div>

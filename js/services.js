@@ -27,21 +27,3 @@ app.factory('pf3service', function ($http) {
 });
 
 
-app.factory('dataService', function ($rootScope) {
-
-    var shared = {};
-    shared.selectWorkgroup = function (data) {
-        $rootScope.$broadcast("workgroupSelected", data);
-    }
-
-    shared.selectClient = function (data) {
-        $rootScope.$broadcast("clientSelected", data);
-    }
-
-    shared.selectUser = function (data) {
-        $rootScope.$broadcast("userSelected", data);
-    }
-
-    return shared;
-});
-

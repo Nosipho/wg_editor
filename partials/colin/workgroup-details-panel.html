@@ -14,11 +14,11 @@
                                ng-model="currentWorkgroup.id"
                                ng-required="true"
                                ng-minlength="7" ng-maxlength="7">
-                        <p ng-show="wgForm.wg_id.$error" class="help-block">
-                            {{HELP_TEXT_wg_id | translate}}</p>
-                        <span class="glyphicon form-control-feedback" ng-show="true"
+                         <span class="glyphicon form-control-feedback" ng-show="wgForm.wg_id.$dirty"
                               ng-class="{ 'glyphicon-remove' : wgForm.wg_id.$invalid, 'glyphicon-ok' : wgForm.wg_id.$valid }">
                         </span>
+                        <p ng-show="wgForm.wg_id.$invalid" class="help-block">
+                            {{'HELP_TEXT_wg_id' | translate}}</p>
                     </div>
                 </div>
                 <div class="form-group  row has-feedback">
@@ -33,13 +33,22 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group row has-feedback">
+                <div class="form-group row has-feedback"
+                     ng-class="{
+                     'has-error' : ((wgForm.wg_name.$invalid && wgForm.wg_name.$dirty) || wgForm.wg_name.length == 0),
+                     'has-success' : wgForm.wg_name.$valid }">
 
                     <label for="wg_name" class="control-label col-sm-3">{{'NAME'| translate}}</label>
 
                     <div class="col-sm-9">
                         <input name="wg_name" id="wg_name" type="text" class="form-control"
-                               ng-model="currentWorkgroup.name">
+                               ng-model="currentWorkgroup.name"
+                               ng-minlength="2">
+                        <span class="glyphicon form-control-feedback" ng-show="wgForm.wg_name.$dirty"
+                              ng-class="{ 'glyphicon-remove' : wgForm.wg_name.$invalid, 'glyphicon-ok' : wgForm.wg_name.$valid }">
+                        </span>
+                        <p ng-show="wgForm.wg_name.$invalid" class="help-block">
+                            {{'HELP_TEXT_wg_name' | translate}}</p>
                     </div>
                 </div>
                 <div class="form-group row has-feedback">
@@ -76,7 +85,7 @@
     </div>
     <div class="btn-group-sm" style="padding:6px">
         <button type="button" class="btn btn-warning btn-s" ng-click="saveCurrentWorkgroup()"
-                ng-disabled="false">
+                ng-disabled="false" ng-show="wgForm.$dirty && wgForm.$valid">
             <span translate="SAVE_WORKGROUP"/>
         </button>
         <button type="button" class="btn btn-warning btn-s" ng-click="selectWorkgroup(selectedWorkgroup)"

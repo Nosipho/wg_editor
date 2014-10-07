@@ -40,5 +40,6 @@ var translations_en_GB = {
     NAME: "Name",
     USER_NOT_ACTIVE: "User not active",
     FAILED_LOGIN_ATTEMPTS: "Failed login attempts: {{count}}",
-    HELP_TEXT_wg_id: "This is not a valid Noosh Workgroup id"
+    HELP_TEXT_wg_id: "Noosh Workgroup id must be greater than 5000000",
+    HELP_TEXT_wg_name: "Workgroup name must have a minimum of 2 characters"
 }

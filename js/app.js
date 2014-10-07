@@ -1,6 +1,6 @@
 (function (){
 
-    var app = angular.module ('wgEditor', [ 'ui.bootstrap', 'ngCookies', 'ngRoute',
+    var app = angular.module ('wgEditor', [ 'ui.bootstrap', 'ngCookies', 'ngRoute', 'ngMessages',
         'pascalprecht.translate', 'editorControllers'
     ]);
 
